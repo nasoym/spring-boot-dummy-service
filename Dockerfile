@@ -9,7 +9,6 @@ WORKDIR /spring_service
 
 COPY build.gradle gradlew gradlew.bat /spring_service/
 COPY gradle /spring_service/gradle
-# COPY .gradle /spring_service/.gradle
 COPY src /spring_service/src
 
 RUN ./gradlew build
