@@ -20,8 +20,8 @@ public class Application {
     }
 
     @RequestMapping("/createstring")
-    public String home() {
-        for(int i;i=0;i<1000) {
+    public String createstring() {
+        for(int i=0;i<=1000;i++) {
           String foo = new String("new String");
         }
         return "create string";
