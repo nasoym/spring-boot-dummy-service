@@ -30,7 +30,7 @@ public class Application {
     }
 
     @RequestMapping("/memory_usage")
-    public String memory_usage(@RequestParam("usage") int mb_usage) {
+    public String memory_usage(@RequestParam(value="usage", required=false, defaultValue="1") int mb_usage) {
         Vector v = new Vector();
         for(int i=0; i<mb_usage; i++) {
           byte[] bytes = new byte[1024*1024];
