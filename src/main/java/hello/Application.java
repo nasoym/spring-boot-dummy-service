@@ -49,7 +49,7 @@ public class Application {
         try {
             Thread.sleep(1000 * seconds);
         }
-        catch(InterruptedException ex) {
+        catch(Exception ex) {
             Thread.currentThread().interrupt();
         }
 
