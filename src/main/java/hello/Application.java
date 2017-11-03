@@ -44,7 +44,7 @@ public class Application {
     }
 
     @RequestMapping("/sleep")
-    public String memory_usage(@RequestParam(value="seconds", required=false, defaultValue="1") int seconds) {
+    public String sleep(@RequestParam(value="seconds", required=false, defaultValue="1") int seconds) {
         // TimeUnit.SECONDS.sleep(seconds);
         try {
             Thread.sleep(1000 * seconds);
