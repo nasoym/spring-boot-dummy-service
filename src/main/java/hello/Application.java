@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.Vector;
+import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
 @RestController
@@ -39,6 +40,19 @@ public class Application {
           bytes[2] = 0;
           v.add(bytes);
         }
+        return "ok";
+    }
+
+    @RequestMapping("/sleep")
+    public String memory_usage(@RequestParam(value="seconds", required=false, defaultValue="1") int seconds) {
+        // TimeUnit.SECONDS.sleep(seconds);
+        try {
+            Thread.sleep(1000 * seconds);
+        }
+        catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+
         return "ok";
     }
 
