@@ -49,8 +49,8 @@ public class Application {
         try {
             Thread.sleep(1000 * seconds);
         }
-        catch(Exception ex) {
-            Thread.currentThread().interrupt();
+        catch(InterruptedException ex) {
+            // Thread.currentThread().interrupt();
         }
 
         return "ok";
