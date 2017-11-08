@@ -9,14 +9,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.Vector;
 import java.util.concurrent.TimeUnit;
+// import io.prometheus.client.spring.web.EnablePrometheusTiming;
+// import io.prometheus.client.spring.web.PrometheusTimeMethod;
 
 @SpringBootApplication
+// @EnablePrometheusTiming
 @RestController
 public class Application {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
 
     @RequestMapping("/")
+    // @PrometheusTimeMethod(name="home", help="foo")
     public String home() {
         LOGGER.info("request: /");
         return "Hello Docker World";
@@ -44,6 +48,7 @@ public class Application {
     }
 
     @RequestMapping("/sleep")
+    // @PrometheusTimeMethod(name="sleep", help="foo")
     public String sleep(@RequestParam(value="seconds", required=false, defaultValue="1") int seconds) {
         // TimeUnit.SECONDS.sleep(seconds);
         try {
