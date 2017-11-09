@@ -27,7 +27,8 @@ public class Application {
     }
 
     @RequestMapping("/createstring")
-    public String createstring() {
+    public String createstring(@RequestParam(value="count", required=false, defaultValue="1") int count) {
+        LOGGER.info("request: /createstring value: " + count);
         for(int i=0;i<=1000;i++) {
           String foo = new String("new String");
         }
@@ -36,6 +37,7 @@ public class Application {
 
     @RequestMapping("/memory_usage")
     public String memory_usage(@RequestParam(value="usage", required=false, defaultValue="1") int mb_usage) {
+        LOGGER.info("request: /memory_usage value: " + mb_usage);
         Vector v = new Vector();
         for(int i=0; i<mb_usage; i++) {
           byte[] bytes = new byte[1024*1024];
@@ -50,6 +52,7 @@ public class Application {
     @RequestMapping("/sleep")
     // @PrometheusTimeMethod(name="sleep", help="foo")
     public String sleep(@RequestParam(value="seconds", required=false, defaultValue="1") int seconds) {
+        LOGGER.info("request: /sleep value: " + seconds);
         // TimeUnit.SECONDS.sleep(seconds);
         try {
             Thread.sleep(1000 * seconds);
