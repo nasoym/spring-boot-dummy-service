@@ -34,6 +34,18 @@ public class Application {
         }
         return "ok";
     }
+    
+    @RequestMapping("/cpu")
+    public String cpu(@RequestParam(value="count", required=false, defaultValue="1") int count) {
+        for(int j=0;j<=count;j++) {
+          long increment =0l;
+          for(long i=0;i<Integer.MAX_VALUE;i++) {
+            increment +=1;
+          }
+        }
+        return "ok";
+    }
+
 
     @RequestMapping("/memory_usage")
     public String memory_usage(@RequestParam(value="usage", required=false, defaultValue="1") int mb_usage) {
