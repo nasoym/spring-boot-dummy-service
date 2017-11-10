@@ -67,7 +67,7 @@ public class Application {
     @RequestMapping("/sleep")
     // @PrometheusTimeMethod(name="sleep", help="foo")
     public String sleep(@RequestParam(value="milliseconds", required=false, defaultValue="1") int milliseconds) {
-        LOGGER.info("request: /sleep value: " + seconds);
+        LOGGER.info("request: /sleep value: " + milliseconds);
         // TimeUnit.SECONDS.sleep(seconds);
         try {
             Thread.sleep(milliseconds);
