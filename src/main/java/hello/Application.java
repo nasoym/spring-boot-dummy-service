@@ -66,11 +66,11 @@ public class Application {
 
     @RequestMapping("/sleep")
     // @PrometheusTimeMethod(name="sleep", help="foo")
-    public String sleep(@RequestParam(value="seconds", required=false, defaultValue="1") int seconds) {
+    public String sleep(@RequestParam(value="milliseconds", required=false, defaultValue="1") int milliseconds) {
         LOGGER.info("request: /sleep value: " + seconds);
         // TimeUnit.SECONDS.sleep(seconds);
         try {
-            Thread.sleep(1000 * seconds);
+            Thread.sleep(milliseconds);
         }
         catch(InterruptedException ex) {
             // Thread.currentThread().interrupt();
