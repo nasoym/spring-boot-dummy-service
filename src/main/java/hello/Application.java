@@ -29,8 +29,10 @@ public class Application {
     @RequestMapping("/createstring")
     public String createstring(@RequestParam(value="count", required=false, defaultValue="1") int count) {
         LOGGER.info("request: /createstring value: " + count);
-        for(int i=0;i<=1000;i++) {
+        Vector v = new Vector();
+        for(int i=0;i<=count;i++) {
           String foo = new String("new String");
+          v.add(foo);
         }
         return "ok";
     }
