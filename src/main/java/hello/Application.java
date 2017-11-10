@@ -37,6 +37,7 @@ public class Application {
     
     @RequestMapping("/cpu")
     public String cpu(@RequestParam(value="count", required=false, defaultValue="1") int count) {
+        LOGGER.info("request: /cpu value: " + count);
         for(int j=0;j<=count;j++) {
           long increment =0l;
           for(long i=0;i<Integer.MAX_VALUE;i++) {
